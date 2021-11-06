@@ -7,14 +7,23 @@ const imgURL =
     "https://gist.githubusercontent.com/cferdinandi/d40f6a589c60eeb7fa10de9cca212cec/raw/29eaac94f4201691cf31d76787c6f867838d63f0/";
 let counter = 0;
 
-const gridToggler = () => app.classList.toggle("row");
+const winLose = (monster) => {
+    if (monster.name === "sock") window.location.href = "src/pages/lose.html";
+    if (counter === 11) window.location.href = "src/pages/win.html";
+};
 
 const getImage = (monster, door) => {
     const img = document.createElement("img");
     img.src = `${imgURL}${monster.name}.svg`;
     img.alt = `${monster.alt}`;
     img.classList.remove("cursor");
+
+    winLose(monster);
+
     door.replaceWith(img);
+    document.querySelector(
+        "[data-counter]"
+    ).textContent = `Monsters found: ${++counter}`;
 };
 
 const getMonsters = () => {
@@ -31,22 +40,6 @@ const getMonsters = () => {
     );
 };
 
-const winLose = (monster) => {
-    if (monster.name === "sock") {
-        gridToggler();
-        window.location.href = "../pages/lose.html";
-        return;
-    } else if (counter === 11) {
-        gridToggler();
-        window.location.href = "../pages/win.html";
-        return;
-    } else {
-        document.querySelector(
-            "[data-counter]"
-        ).textContent = `Monsters found: ${++counter}`;
-    }
-};
-
 const clickHandler = (event) => {
     let door = event.target.closest("[data-monster]");
     if (!door) return;
@@ -54,21 +47,20 @@ const clickHandler = (event) => {
     if (!monster) return;
 
     getImage(monster, door);
-    winLose(monster);
 };
 
 const init = () => {
-    document.querySelector("[data-counter]").innerHTML = `<p>&nbsp;</p>`;
+    document.querySelector("[data-counter]").innerHTML = " ";
     counter = 0;
-
-    gridToggler();
     getMonsters();
 };
 
 document.addEventListener("click", clickHandler);
-playAgainButton.addEventListener("click", function () {
-    window.location.href = "../../index.html";
-    init();
-});
 
+if (playAgainButton) {
+    playAgainButton.addEventListener(
+        "click",
+        () => (window.location.href = "../../index.html")
+    );
+}
 init();

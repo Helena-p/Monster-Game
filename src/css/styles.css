@@ -23,6 +23,7 @@ a:visited {
 }
 
 .row {
+    max-width: 80%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
@@ -43,14 +44,14 @@ img {
 /* DOCUMENT & CLASS STYLE SETTINGS */
 
 body {
-    padding: 3rem 1rem;
+    padding: 3rem 0;
     min-height: 100vh;
     font-family: "Monserrat", sans-serif;
     font-size: 1.2rem;
 }
 
 main {
-    padding: 3rem;
+    padding: 3rem 1.4rem;
     margin: auto;
 
     display: flex;
@@ -67,7 +68,7 @@ header > * + * {
 }
 
 .app {
-    max-width: 45rem;
+    max-width: 60rem;
     margin: auto;
     padding: 2rem 0;
 }
