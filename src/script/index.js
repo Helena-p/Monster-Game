@@ -57,8 +57,7 @@ const clickHandler = (event) => {
     winLose(monster);
 };
 
-const init = (event) => {
-    window.location.href = "../../index.html";
+const init = () => {
     document.querySelector("[data-counter]").innerHTML = `<p>&nbsp;</p>`;
     counter = 0;
 
@@ -67,5 +66,9 @@ const init = (event) => {
 };
 
 document.addEventListener("click", clickHandler);
-playAgainButton.addEventListener("click", init);
+playAgainButton.addEventListener("click", function () {
+    window.location.href = "../../index.html";
+    init();
+});
+
 init();
