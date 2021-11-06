@@ -1,0 +1,110 @@
+/* GENERAL STYLE SETTINGS */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+a {
+    display: inline-block;
+    color: inherit;
+}
+
+a:hover,
+a:visited {
+    color: #4a148c;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    text-align: center;
+}
+
+.grid {
+    min-height: 6em;
+    padding: 1em;
+}
+
+img {
+    display: inline-block;
+    height: auto;
+    max-width: 100%;
+}
+
+/* DOCUMENT & CLASS STYLE SETTINGS */
+
+body {
+    padding: 3rem 1rem;
+    min-height: 100vh;
+    font-family: "Monserrat", sans-serif;
+    font-size: 1.2rem;
+}
+
+main {
+    padding: 3rem;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    color: #4a148c;
+    text-align: center;
+}
+
+header > * + * {
+    padding-top: 1.4rem;
+}
+
+.app {
+    max-width: 45rem;
+    margin: auto;
+    padding: 2rem 0;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.attribution,
+hr {
+    max-width: 45rem;
+    margin: auto;
+    font-size: 0.6rem;
+    color: #777;
+}
+
+.hidden {
+    display: none;
+}
+
+.replay-button {
+    border: 2.2px solid #4a148c;
+    border-radius: 3px;
+    text-transform: uppercase;
+    padding: 0.8em 2em;
+    color: #4a148c;
+    box-shadow: 12.2px 17.8px 2.7px rgba(0, 0, 0, -0.014),
+        11.4px 16.6px 6.9px rgba(0, 0, 0, -0.01),
+        8.9px 12.9px 14.2px rgba(0, 0, 0, -0.001),
+        15.1px 22px 29.2px rgba(0, 0, 0, 0.015),
+        44px 64px 80px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    max-width: 100rem;
+    align-self: center;
+}
