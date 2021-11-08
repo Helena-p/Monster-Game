@@ -15,3 +15,5 @@ I started the project by shuffling the monster array with the Fisher-Yates algor
 To announce the updated content when a user wins or loses, the user is directed to a new page with a link if the user would like to play another game, that directs back to the game page.
 
 ## Learning outcomes
+
+I initially had a button to direct the user back to the game board. However that caused an error due to event delegation and that the button didn't exist on the game page. If I placed a guard clause first the error dissapeared. Eventually I decided to exchange the button element to a link instead to redirect the user back to the game page and I could remove the javascript for that purpose entirely.
