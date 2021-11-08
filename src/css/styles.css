@@ -48,6 +48,7 @@ body {
     min-height: 100vh;
     font-family: "Monserrat", sans-serif;
     font-size: 1.2rem;
+    display: grid;
 }
 
 main {
@@ -94,7 +95,7 @@ hr {
     display: none;
 }
 
-.replay-button {
+.replay-button > a {
     margin-top: 2rem;
     border: 2.2px solid #4a148c;
     border-radius: 3px;
@@ -109,6 +110,7 @@ hr {
     cursor: pointer;
     max-width: 100rem;
     align-self: center;
+    text-decoration: none;
 }
 
 .mr-auto {
