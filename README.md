@@ -1,6 +1,7 @@
 # Monster Game
 
-This is a project during [Vanilla Js Academy](https://gomakethings.com/) by Chris Ferdinandi. The Vanilla JS Academy is a 10 week project-based training program designed to help you learn to solve problems and think in JavaScript.
+This is a project during [Vanilla Js Academy](https://gomakethings.com/) by Chris Ferdinandi. The Vanilla JS Academy is a 10 week project-based training program designed to help you learn to solve problems and think in JavaScript.<br>
+[Play the game](https://helena-p.github.io/Monster-Game/)
 
 ## Overview
 
@@ -14,3 +15,5 @@ I started the project by shuffling the monster array with the Fisher-Yates algor
 To announce the updated content when a user wins or loses, the user is directed to a new page with a link if the user would like to play another game, that directs back to the game page.
 
 ## Learning outcomes
+
+I had some trouble with the win game logic. My initial solution was to direct the user to the winning page when the counter had reached 11. That didn't redirect to the winning page. Not until I set the counter to the array length minus one (`monsters.length - 1`) I get the desired result.
