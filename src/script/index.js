@@ -2,14 +2,17 @@ import { monsters } from "./monsters.js";
 import { shuffle, cleanHTML } from "./helpers.js";
 
 const app = document.querySelector("#app");
-const playAgainButton = document.querySelector(".replay-button");
 const imgURL =
     "https://gist.githubusercontent.com/cferdinandi/d40f6a589c60eeb7fa10de9cca212cec/raw/29eaac94f4201691cf31d76787c6f867838d63f0/";
 let counter = 0;
 
-const winLose = (monster) => {
+const winOrLose = (monster) => {
     if (monster.name === "sock") window.location.href = "src/pages/lose.html";
-    if (counter === 11) window.location.href = "src/pages/win.html";
+    document.querySelector(
+        "[data-counter]"
+    ).textContent = `Monsters found: ${++counter}`;
+    if (counter === monsters.length - 1)
+        window.location.href = "src/pages/win.html";
 };
 
 const getImage = (monster, door) => {
@@ -18,15 +21,13 @@ const getImage = (monster, door) => {
     img.alt = `${monster.alt}`;
     img.classList.remove("cursor");
 
-    winLose(monster);
+    winOrLose(monster);
 
     door.replaceWith(img);
-    document.querySelector(
-        "[data-counter]"
-    ).textContent = `Monsters found: ${++counter}`;
 };
 
 const getMonsters = () => {
+    if (!app) return;
     app.innerHTML = cleanHTML(
         shuffle(monsters)
             .map((_, index) => {
@@ -56,11 +57,4 @@ const init = () => {
 };
 
 document.addEventListener("click", clickHandler);
-
-if (playAgainButton) {
-    playAgainButton.addEventListener(
-        "click",
-        () => (window.location.href = "../../index.html")
-    );
-}
 init();

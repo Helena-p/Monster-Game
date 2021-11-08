@@ -110,3 +110,7 @@ hr {
     max-width: 100rem;
     align-self: center;
 }
+
+.mr-auto {
+    margin: auto;
+}
